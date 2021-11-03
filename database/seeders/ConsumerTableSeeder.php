@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use App\Models\Consumer;
 use Illuminate\Database\Seeder;
 
 class ConsumerTableSeeder extends Seeder
@@ -13,6 +13,6 @@ class ConsumerTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $consumers = Consumer::factory()->count(10)->create();
     }
 }

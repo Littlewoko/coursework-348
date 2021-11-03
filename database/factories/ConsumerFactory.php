@@ -15,6 +15,7 @@ class ConsumerFactory extends Factory
     {
         return [
             'name' => $this->faker->firstName(),
+            'date_of_birth' => $this->faker->date($format = 'Y-m-d', $max = '2003-12-30'),
         ];
     }
 }

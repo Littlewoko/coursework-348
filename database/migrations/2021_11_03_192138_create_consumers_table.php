@@ -16,7 +16,7 @@ class CreateConsumersTable extends Migration
         Schema::create('consumers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('date_of_birth')->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->timestamps();
         });
     }

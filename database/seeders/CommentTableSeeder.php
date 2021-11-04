@@ -16,6 +16,7 @@ class CommentTableSeeder extends Seeder
         $c = new Comment;
         $c->time_posted = '20:49:42';
         $c->comment_text = "Hello There";
+        $c->consumer_id = 1;
         $c->save();
 
         $comments = Comment::factory()->count(50)->create();

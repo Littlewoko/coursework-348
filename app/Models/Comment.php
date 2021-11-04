@@ -9,8 +9,8 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function Consumer() 
+    public function consumer() 
     {
-        return $this->belongTo('App\Consumer');
+        return $this->belongsTo('App\Consumer');
     }
 }

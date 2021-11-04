@@ -17,7 +17,13 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->time('time_posted');
             $table->String('comment_text');
+            $table->bigInteger('consumer_id')->unsigned();
+
+            $table->foreign('consumer_id')->references('id')->on('consumers')
+                ->onDelete('cascade')->onUpdate('cascade');
+                
             $table->timestamps();
+
         });
     }
 

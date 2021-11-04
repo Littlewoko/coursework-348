@@ -11,6 +11,6 @@ class Comment extends Model
 
     public function consumer() 
     {
-        return $this->belongsTo('App\Consumer');
+        return $this->belongsTo(Consumer::class);
     }
 }

@@ -17,5 +17,7 @@ class CommentTableSeeder extends Seeder
         $c->time_posted = '20:49:42';
         $c->comment_text = "Hello There";
         $c->save();
+
+        $comments = Comment::factory()->count(50)->create();
     }
 }

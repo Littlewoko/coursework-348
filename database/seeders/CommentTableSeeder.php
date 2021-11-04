@@ -18,7 +18,5 @@ class CommentTableSeeder extends Seeder
         $c->comment_text = "Hello There";
         $c->consumer_id = 1;
         $c->save();
-
-        $comments = Comment::factory()->count(50)->create();
     }
 }

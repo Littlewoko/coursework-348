@@ -12,7 +12,6 @@
         </h1>
 
         @if ($errors->any())
-
             <div>
                 Errors:
                 <ul>
@@ -23,9 +22,8 @@
                     @endforeach
                 </ul>
             </div>
-
         @endif
-        
+
         <div>
             @yield('content')
         </div>

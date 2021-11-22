@@ -9,6 +9,14 @@
         The Consumers of CSC348
     </p>
     
+    @if (session('message'))
+
+        <p><b>
+            {{ session('message') }}
+        </p></b>
+        
+    @endif
+
     <ul>
         @foreach ($consumers as $consumer)
             <li>

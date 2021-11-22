@@ -44,7 +44,13 @@ class ConsumerController extends Controller
             'date_of_birth' => 'nullable|date',
         ]);
 
-        return "Passed validation";
+        $c = new Consumer;
+        $c->name = $data['name'];
+        $c->date_of_birth = $data['date_of_birth'];
+        $c->save();
+
+        session()->flash('message', 'Consumer was created.');
+        return redirect()->route('consumers.index');
     }
 
     /**

@@ -12,8 +12,10 @@
                 value="{{ old('name') }}">
         </p>
         <p>
+            
             D.O.B: <input type="text" name="date_of_birth"
-                value="{{ old('name') }}">
+                value="{{ old('date_of_birth') }}">
+            (YYYY-MM-DD)
         </p>
 
         <input type="submit" value="submit">

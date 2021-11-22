@@ -49,6 +49,8 @@ class ConsumerController extends Controller
     public function show($id)
     {
         //
+        $consumer = Consumer::findOrFail($id);
+        return view('consumers.show', ['consumer' => $consumer]);
     }
 
     /**

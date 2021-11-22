@@ -22,4 +22,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/consumers', [ConsumerController::class, 'index']);
+Route::get('/consumers/{id}', [ConsumerController::class, 'show']);
+
 require __DIR__.'/auth.php';

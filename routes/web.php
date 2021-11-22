@@ -21,8 +21,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/consumers', [ConsumerController::class, 'index']);
+Route::get('/consumers', [ConsumerController::class, 'index'])
+    ->name('consumers.index');
+
+Route::get('/consumers/create', [ConsumerController::class, 'create'])
+    ->name('consumers.create');
+
+Route::post('/consumers', [ConsumerController::class, 'store'])
+    ->name('consumers.store');
+
 Route::get('/consumers/{id}', [ConsumerController::class, 'show'])
     ->name('consumers.show');
+
 
 require __DIR__.'/auth.php';

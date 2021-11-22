@@ -27,6 +27,7 @@ class ConsumerController extends Controller
     public function create()
     {
         //
+        return view('consumers.create');
     }
 
     /**
@@ -38,6 +39,12 @@ class ConsumerController extends Controller
     public function store(Request $request)
     {
         //
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'date_of_birth' => 'nullable|date',
+        ]);
+
+        return "Passed validation";
     }
 
     /**

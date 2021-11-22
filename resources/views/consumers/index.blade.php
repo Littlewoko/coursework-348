@@ -18,4 +18,7 @@
             </li>
         @endforeach
     </ul>
+    <a href="{{ route('consumers.create') }}">
+        Create new consumer
+    </a>
 @endsection

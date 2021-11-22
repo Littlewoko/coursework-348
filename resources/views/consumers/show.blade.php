@@ -12,5 +12,6 @@
             D.O.B: 
             {{ $consumer->date_of_birth ?? 'Unknown'}}
         </li>
+
     </ul>
 @endsection

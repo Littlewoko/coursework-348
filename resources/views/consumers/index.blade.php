@@ -8,10 +8,13 @@
     <p>
         The Consumers of CSC348
     </p>
+    
     <ul>
         @foreach ($consumers as $consumer)
             <li>
-                {{ $consumer->name}}
+                <a href="{{ route('consumers.show', ['id' => $consumer->id]) }}">
+                    {{ $consumer->name }}
+                </a>
             </li>
         @endforeach
     </ul>

@@ -15,8 +15,8 @@ class ConsumerTableSeeder extends Seeder
     public function run()
     {
         $u = new Consumer;
-        $u->name = "Bradley";
-        $u->date_of_birth = "1999-04-01";
+        $u->name = "Itachi";
+        $u->date_of_birth = "1999-06-09";
         $u->save();
         
         $consumers = Consumer::factory()->count(10)

@@ -8,10 +8,12 @@
     <form method="POST" action="{{ route('consumers.store') }}">
         @csrf
         <p>
-            Name: <input type="text" name="name">
+            Name: <input type="text" name="name"
+                value="{{ old('name') }}">
         </p>
         <p>
-            D.O.B: <input type="text" name="date_of_birth">
+            D.O.B: <input type="text" name="date_of_birth"
+                value="{{ old('name') }}">
         </p>
 
         <input type="submit" value="submit">

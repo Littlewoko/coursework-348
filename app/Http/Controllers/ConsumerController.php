@@ -14,6 +14,8 @@ class ConsumerController extends Controller
     public function index()
     {
         //
+        $consumers = Consumer::all();
+        return view('consumer.index', ['consumers' => $consumers]);
     }
 
     /**

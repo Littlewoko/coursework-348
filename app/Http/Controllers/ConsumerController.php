@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Consumer;
 
 class ConsumerController extends Controller
 {
@@ -15,7 +16,7 @@ class ConsumerController extends Controller
     {
         //
         $consumers = Consumer::all();
-        return view('consumer.index', ['consumers' => $consumers]);
+        return view('consumers.index', ['consumers' => $consumers]);
     }
 
     /**

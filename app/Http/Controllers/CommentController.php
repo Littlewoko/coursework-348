@@ -37,6 +37,7 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         //
+
     }
 
     /**
@@ -88,5 +89,21 @@ class CommentController extends Controller
     {
         $comments = Comment::all();
         return $comments;
+    }
+
+    public function apiStore(Request $request)
+    {
+        $data = $request->validate([
+            'time_posted' => 'required|time',
+            'coment_text' => 'required|max:255',
+            'consumer_id' => 'required|bigInteger',
+        ]);
+
+        $e = new Comment();
+        $e->time_posted = $request['time_posted'];
+        $e->comment_text = $request['comment_text'];
+        $e->consumer_id = $request['consumer_id'];
+        $e->save();
+        return $e;
     }
 }

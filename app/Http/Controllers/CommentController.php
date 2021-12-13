@@ -83,4 +83,10 @@ class CommentController extends Controller
     {
         //
     }
+
+    public function apiIndex()
+    {
+        $comments = Comment::all();
+        return $comments;
+    }
 }

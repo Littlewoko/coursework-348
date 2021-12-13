@@ -48,6 +48,9 @@
                         consumer_id: this.newConsumerId
                     }).then(response=>{
                         this.comments.push(response.data);
+                        this.newTimePosted='';
+                        this.newCommentText='';
+                        this.newConsumerId='';
                     }).catch(response=>{
                         console.log(response);
                     })

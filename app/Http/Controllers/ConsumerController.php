@@ -95,8 +95,11 @@ class ConsumerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Consumer $consumer)
     {
         //
+        $consumer->delete();
+        return redirect()->route('consumers.index')->
+            with('message', 'Consumer was destroyed');
     }
 }

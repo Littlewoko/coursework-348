@@ -33,5 +33,7 @@ Route::post('/consumers', [ConsumerController::class, 'store'])
 Route::get('/consumers/{consumer}', [ConsumerController::class, 'show'])
     ->name('consumers.show');
 
+Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
+    ->name('consumers.destroy');
 
 require __DIR__.'/auth.php';

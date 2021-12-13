@@ -36,4 +36,6 @@ Route::get('/consumers/{consumer}', [ConsumerController::class, 'show'])
 Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
     ->name('consumers.destroy');
 
+Route::get('/comments', [CommentController::class, 'index'])
+    ->name('comments.index');
 require __DIR__.'/auth.php';

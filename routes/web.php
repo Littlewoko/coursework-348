@@ -30,7 +30,7 @@ Route::get('/consumers/create', [ConsumerController::class, 'create'])
 Route::post('/consumers', [ConsumerController::class, 'store'])
     ->name('consumers.store');
 
-Route::get('/consumers/{id}', [ConsumerController::class, 'show'])
+Route::get('/consumers/{consumer}', [ConsumerController::class, 'show'])
     ->name('consumers.show');
 
 

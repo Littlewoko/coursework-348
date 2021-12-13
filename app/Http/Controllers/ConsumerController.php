@@ -59,10 +59,10 @@ class ConsumerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Consumer $consumer)
     {
         //
-        $consumer = Consumer::findOrFail($id);
+        // $consumer = Consumer::findOrFail($id);
         return view('consumers.show', ['consumer' => $consumer]);
     }
 

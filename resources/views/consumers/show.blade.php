@@ -14,4 +14,8 @@
         </li>
 
     </ul>
+
+    <a href="{{ route('consumers.index') }}">
+            All Consumers
+    </a>
 @endsection

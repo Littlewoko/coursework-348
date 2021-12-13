@@ -20,7 +20,7 @@
     <ul>
         @foreach ($consumers as $consumer)
             <li>
-                <a href="{{ route('consumers.show', ['id' => $consumer->id]) }}">
+                <a href="{{ route('consumers.show', [$consumer]) }}">
                     {{ $consumer->name }}
                 </a>
             </li>

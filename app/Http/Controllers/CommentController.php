@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Consumer;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -16,7 +17,7 @@ class CommentController extends Controller
     {
         //
         $consumers = Consumer::all();
-        return view('comments.index', ['comments' => $comments]);
+        return view('comments.index', ['consumers' => $consumers]);
     }
 
     /**

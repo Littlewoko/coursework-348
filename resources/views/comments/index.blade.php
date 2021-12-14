@@ -16,16 +16,19 @@
         </h2>
         comment_text: <input type="text" id="input"
             v-model="newCommentText">
-        consumer_id: <input type="text" id="input"
-            v-model="newConsumerId">
+        <select name="consumer_id" v-model="newConsumerId">
+            @foreach ($consumers as $consumer)
+                <option value="{{ $consumer->id }}">
+                    {{ $consumer->name }}
+                </option>
+            @endforeach
+        </select>
         <button @click="createComment">Post</button>
 
         <ul>
-            <div v-for="comment in comments">
-                <li v-if="comment.consumer_id == 1">
+            <li v-for="comment in comments">
                 @{{ comment.comment_text }}
-</li>
-</div>
+            </li>
         </ul>
     </div>
 
@@ -43,7 +46,7 @@
                     axios.post("{{ route ('api.comments.store') }}",
                     {
                         comment_text: this.newCommentText,
-                        consumer_id: 1,
+                        consumer_id: this.newConsumerId,
                     }).then(response=>{
                         this.comments.push(response.data);
                     }).catch(response=>{

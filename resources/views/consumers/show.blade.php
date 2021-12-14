@@ -43,6 +43,12 @@
                 </li>
             </div>
         </ul>
+
+        <h2>
+            New Comment
+        </h2>
+        Enter a comment: <input type="text" id="input" v-model="newCommentText">
+        <button @click="createComment">Enter</button>
     </div>
 
 
@@ -51,6 +57,22 @@
             el: "#root",
             data: {
                 comments: [],
+                newCommentText: '',
+                consumer_id: "{{ $consumer->id }}", 
+            },
+            methods: {
+                createComment: function(){
+                    axios.post("{{ route ('api.comments.store') }}",
+                    {
+                        comment_text: this.newCommentText,
+                        consumer_id: this.consumer_id,
+                    }).then(response=>{
+                        this.comments.push(response.data);
+                        this.newCommentText = '';
+                    }).catch(response=>{
+                        console.log(response);
+                    })
+                }
             },
             mounted(){
                 axios.get("{{route('api.comments.index')}}")

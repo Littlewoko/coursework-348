@@ -20,12 +20,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/comments',
+    [CommentController::class, 'apiDestroy'])
+    ->name('api.comments.destroy');
+    
+Route::post('/comments',
     [CommentController::class, 'apiStore'])
     ->name('api.comments.store');
 
 Route::get('/comments',
     [CommentController::class, 'apiIndex'])
     ->name('api.comments.index');
+
+
 
 
 

@@ -85,6 +85,9 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+        $comment->delete();
+        return redirect()->route('consumers.show')->
+            with('message', 'Consumer was destroyed');
     }
 
     public function apiIndex()
@@ -105,5 +108,10 @@ class CommentController extends Controller
         $e->consumer_id = $request['consumer_id'];
         $e->save();
         return $e;
+    }
+
+    public function apiDestroy(Request $request) 
+    {
+        $request -> delete();
     }
 }

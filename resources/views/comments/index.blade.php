@@ -28,6 +28,7 @@
         <ul>
             <li v-for="comment in comments">
                 @{{ comment.comment_text }}
+                <button @click="deleteComment(comment)">Delete</button>
             </li>
         </ul>
     </div>
@@ -39,6 +40,7 @@
             data: {
                 newCommentText: '',
                 newConsumerId: '', 
+                comment: '',
                 comments: [],
             },
             methods: {
@@ -49,6 +51,16 @@
                         consumer_id: this.newConsumerId,
                     }).then(response=>{
                         this.comments.push(response.data);
+                    }).catch(response=>{
+                        console.log(response);
+                    })
+                },
+                deleteComment: function(Comment $comment){
+                    axios.post("{{ route ('api.comments.delete') }}",
+                    {
+                        comment: this.comment;
+                    }).then(response=>{
+                        
                     }).catch(response=>{
                         console.log(response);
                     })

@@ -22,14 +22,6 @@
     <a href="{{ route('consumers.index') }}">
             All Consumers
     </a>
-    <form method="POST" 
-        action="{{ route('consumers.destroy', [$consumer]) }}">
-        @csrf
-        
-        <button type="submit">
-            Destroy
-        </button>
-    </form>
 
     <div id="root">
         <h2>

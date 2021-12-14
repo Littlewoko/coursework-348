@@ -18,10 +18,6 @@
         </li>
 
     </ul>
-
-    <a href="{{ route('consumers.index') }}">
-            All Consumers
-    </a>
     <form method="POST"
         action="{{ route('consumers.destroy', [$consumer]) }}">
         @csrf

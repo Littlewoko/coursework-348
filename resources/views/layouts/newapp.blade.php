@@ -1,6 +1,12 @@
 <!doctype html>
 <html lang="eng">
     <head>
+    <a href="{{ route('dashboard') }}">
+            Dashboard  
+    </a>
+    <a href="{{ route('consumers.index') }}">
+            Consumers
+    </a>
         <title>
             CSC348 Coursework -@yield('title')
         </title>

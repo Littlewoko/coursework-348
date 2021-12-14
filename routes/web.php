@@ -26,16 +26,16 @@ Route::get('/consumers', [ConsumerController::class, 'index'])
     ->name('consumers.index');
 
 Route::get('/consumers/create', [ConsumerController::class, 'create'])
-    ->name('consumers.create');
+    ->name('consumers.create')->middleware(['auth']);
 
 Route::post('/consumers', [ConsumerController::class, 'store'])
-    ->name('consumers.store');
+    ->name('consumers.store')->middleware(['auth']);
 
 Route::get('/consumers/{consumer}', [ConsumerController::class, 'show'])
     ->name('consumers.show');
 
 Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
-    ->name('consumers.destroy');
+    ->name('consumers.destroy')->middleware(['auth']);
 
 Route::get('/comments', [CommentController::class, 'index'])
     ->name('comments.index');

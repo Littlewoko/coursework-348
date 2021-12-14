@@ -10,20 +10,16 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js">
     </script>
     
-    <div id="create">
+    <div id="root">
         <h2>
             New Comment
         </h2>
-        time_posted: <input type="text" id="input"
-            v-model="newTimePosted">
         comment_text: <input type="text" id="input"
             v-model="newCommentText">
         consumer_id: <input type="text" id="input"
             v-model="newConsumerId">
         <button @click="createComment">Post</button>
-    </div>
 
-    <div id="show">
         <ul>
             <li v-for="comment in comments">
                 @{{ comment.comment_text }}
@@ -31,38 +27,29 @@
         </ul>
     </div>
 
+
     <script>
         var app = new Vue({
-            el: "#create",
+            el: "#root",
             data: {
-                newTimePosted: '',
                 newCommentText: '',
                 newConsumerId: '', 
+                comments: [],
             },
             methods:{
                 createComment:function(){
                     axios.post("{{route('api.comments.store')}}",
                     {
-                        time_posted: this.newTimePosted,
                         comment_text: this.newCommentText,
-                        consumer_id: this.newConsumerId
+                        consumer_id: this.newConsumerId,
                     }).then(response=>{
                         this.comments.push(response.data);
-                        this.newTimePosted='';
                         this.newCommentText='';
                         this.newConsumerId='';
                     }).catch(response=>{
                         console.log(response);
                     })
                 }
-            }
-        });
-    </script>
-    <script>
-        var app = new Vue({
-            el: "#show",
-            data: {
-                comments: [],
             },
             mounted(){
                 axios.get("{{route('api.comments.index')}}")

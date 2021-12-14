@@ -21,9 +21,11 @@
         <button @click="createComment">Post</button>
 
         <ul>
-            <li v-for="comment in comments">
+            <div v-for="comment in comments">
+                <li v-if="comment.consumer_id == 1">
                 @{{ comment.comment_text }}
-            </li>
+</li>
+</div>
         </ul>
     </div>
 
@@ -36,16 +38,14 @@
                 newConsumerId: '', 
                 comments: [],
             },
-            methods:{
-                createComment:function(){
-                    axios.post("{{route('api.comments.store')}}",
+            methods: {
+                createComment: function(){
+                    axios.post("{{ route ('api.comments.store') }}",
                     {
                         comment_text: this.newCommentText,
-                        consumer_id: this.newConsumerId,
+                        consumer_id: 1,
                     }).then(response=>{
                         this.comments.push(response.data);
-                        this.newCommentText='';
-                        this.newConsumerId='';
                     }).catch(response=>{
                         console.log(response);
                     })

@@ -15,7 +15,8 @@ class CommentController extends Controller
     public function index()
     {
         //
-        return view('comments.index');
+        $consumers = Consumer::all();
+        return view('comments.index', ['comments' => $comments]);
     }
 
     /**
@@ -94,8 +95,8 @@ class CommentController extends Controller
     public function apiStore(Request $request)
     {
         $data = $request->validate([
-            'coment_text' => 'required|max:255',
-            'consumer_id' => 'required|bigInteger',
+            'comment_text' => 'required|max:255',
+            'consumer_id' => 'required',
         ]);
 
         $e = new Comment();

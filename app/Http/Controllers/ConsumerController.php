@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Consumer;
+use App\Models\Comment;
 
 class ConsumerController extends Controller
 {
@@ -62,7 +63,6 @@ class ConsumerController extends Controller
     public function show(Consumer $consumer)
     {
         //
-        // $consumer = Consumer::findOrFail($id);
         return view('consumers.show', ['consumer' => $consumer]);
     }
 

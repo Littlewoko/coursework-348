@@ -26,7 +26,8 @@ Route::get('/consumers', [ConsumerController::class, 'index'])
     ->name('consumers.index');
 
 Route::get('/consumers/create', [ConsumerController::class, 'create'])
-    ->name('consumers.create')->middleware(['auth']);
+    ->name('consumers.create')->middleware(['auth'])
+    ->middleware(['two.factor']);
 
 Route::post('/consumers', [ConsumerController::class, 'store'])
     ->name('consumers.store')->middleware(['auth']);

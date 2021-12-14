@@ -14,7 +14,6 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'time_posted' => $this->faker->time($format = 'H:i:s', $max = '23:59:59'),
             'comment_text' => $this->faker->realText($maxNbChars = 100, $indexSize = 2),
         ];
     }

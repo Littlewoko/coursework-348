@@ -14,7 +14,6 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         $c = new Comment;
-        $c->time_posted = '20:49:42';
         $c->comment_text = "Hello There";
         $c->consumer_id = 1;
         $c->save();

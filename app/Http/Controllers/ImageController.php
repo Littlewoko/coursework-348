@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
 
 class ImageController extends Controller
 {
@@ -14,6 +15,8 @@ class ImageController extends Controller
     public function index()
     {
         //
+        $images = Image::all();
+        return view('images.index', ['images' => $images]);
     }
 
     /**
@@ -36,6 +39,27 @@ class ImageController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'consumer_id' => 'required|unique:images',
+        ]);
+
+        if ($request->hasFile('file')) {
+            $request->validate([
+                'image' => 'mimes:jpeg,bmp,png'
+            ]);
+
+            $request->file('file')->store('/public/images');
+            
+            $i = new Image();
+            $i->name = $request['name'];
+            $i->file_path = $request->file->hashName();
+            $i->consumer_id = $request['consumer_id'];
+            $i->save();
+        }
+
+        session()->flash('message', 'Image was created.');
+        return redirect()->route('images.create');
     }
 
     /**

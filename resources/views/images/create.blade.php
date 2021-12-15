@@ -5,7 +5,14 @@
 @endsection
 
 @section('content')
-<form action="{{ route('images.create') }}" method="post" enctype="multipart/form-data">
+@if (session('message'))
+
+    <p><b>
+        {{ session('message') }}
+    </p></b>
+        
+@endif
+<form action="{{ route('images.store') }}" method="post" enctype="multipart/form-data">
 
         @csrf
     <div class="form-group">

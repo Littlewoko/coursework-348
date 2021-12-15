@@ -42,7 +42,13 @@ Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
 Route::get('/comments', [CommentController::class, 'index'])
     ->name('comments.index');
 
+Route::get('/images/index', [ImageController::class, 'index'])
+    ->name('images.index');
+
 Route::get('/images/create', [ImageController::class, 'create'])
     ->name('images.create');
-    
+
+Route::post('/images/create', [ImageController::class, 'store'])
+    ->name('images.store');
+
 require __DIR__.'/auth.php';

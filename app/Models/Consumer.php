@@ -9,6 +9,11 @@ class Consumer extends Model
 {
     use HasFactory;
 
+    public function image()
+    {
+        return $this->hasOne(Image::class);
+    }
+    
     public function comments() 
     {
         return $this->hasMany(Comment::class);

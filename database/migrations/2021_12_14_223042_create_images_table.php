@@ -16,12 +16,12 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('faile_path');
+            $table->string('file_path');
             $table->bigInteger('consumer_id')->unsigned();
 
             $table->foreign('consumer_id')->references('id')
             ->on('consumers')->onDelete('cascade')->onUpdate('cascade');
-            
+
             $table->timestamps();
         });
     }

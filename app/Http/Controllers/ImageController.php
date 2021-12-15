@@ -41,6 +41,7 @@ class ImageController extends Controller
         //
         $request->validate([
             'name' => 'required',
+            'file' => 'required',
             'consumer_id' => 'required|unique:images',
         ]);
 

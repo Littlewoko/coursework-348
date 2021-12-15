@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +42,7 @@ Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
 Route::get('/comments', [CommentController::class, 'index'])
     ->name('comments.index');
 
+Route::get('/images/create', [ImageController::class, 'create'])
+    ->name('images.create');
+    
 require __DIR__.'/auth.php';

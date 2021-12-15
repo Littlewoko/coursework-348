@@ -9,7 +9,7 @@
         @csrf
         <p>
             Name: <input type="text" name="name"
-                value="{{ old('name') }}">
+                value="{{ old('name') }}" required>
         </p>
         <p>
             

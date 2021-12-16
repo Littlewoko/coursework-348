@@ -17,11 +17,13 @@ use App\Services\Reddit;
 |
 */
 
-app()->singleton(Reddit::class, function($app) {
-    return new Reddit('Beep Boop');
-});
 
-Route::get('/reddit', [ConsumerController::class, 'redditMethod']);
+
+Route::get('/reddit', [ConsumerController::class, 'redditMethod'])
+    ->name('reddit');
+
+Route::post('/reddit', [ConsumerController::class, 'redditMethod'])
+    ->name('reddit.comment');
 
 Route::get('/', function () {
     return view('welcome');

@@ -30,4 +30,15 @@
     <a href="{{ route('consumers.create') }}">
         Create new consumer
     </a>
+    <h2>
+        Reddit
+    </h2>
+    <form method="POST" action="{{ route('reddit.comment') }}">
+        @csrf
+        <p>
+            Post Text: <input type="text" name="text" required>
+        </p>    
+
+        <input type="submit" value="Post">
+    </form>
 @endsection

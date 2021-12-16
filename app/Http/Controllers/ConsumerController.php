@@ -115,8 +115,9 @@ class ConsumerController extends Controller
             with('message', 'Consumer was destroyed');
     }
 
-    public function redditMethod(Reddit $r) {
-        $r->comment("YTA, garbage post");
+    public function redditMethod(Reddit $r, Request $request) {
+        $newString = $request['text'];
+        $r->comment($newString);
     }
 
 }

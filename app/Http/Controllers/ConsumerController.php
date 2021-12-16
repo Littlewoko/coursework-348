@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Consumer;
 use App\Models\Comment;
+use App\Services\Reddit;
 
 class ConsumerController extends Controller
 {
@@ -88,8 +89,12 @@ class ConsumerController extends Controller
     public function update(Request $request, Consumer $consumer)
     {
         //
-        $consumer->name = $request['name'];
-        $consumer->date_of_birth = $request['date_of_birth'];
+        $data = $request->validate([
+            'name' => 'required|max:255',
+            'date_of_birth' => 'required|date',
+        ]);
+        $consumer->name = $data['name'];
+        $consumer->date_of_birth = $data['date_of_birth'];
         $consumer->update();
         
         session()->flash('message', 'Consumer was updated.');
@@ -109,4 +114,9 @@ class ConsumerController extends Controller
         return redirect()->route('consumers.index')->
             with('message', 'Consumer was destroyed');
     }
+
+    public function redditMethod(Reddit $r) {
+        $r->comment("YTA, garbage post");
+    }
+
 }

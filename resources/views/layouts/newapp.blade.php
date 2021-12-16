@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="eng">
     <head>
+        Menu:   
     <a href="{{ route('dashboard') }}">
             Dashboard  
     </a>

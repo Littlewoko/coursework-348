@@ -29,14 +29,14 @@
         action="{{ route('consumers.destroy', [$consumer]) }}">
         @csrf
         <button type="submit">
-            Destroy
+            Destroy {{ $consumer->name }}
         </button>
     </form>
     <form method="GET"
         action="{{ route('consumers.edit', [$consumer]) }}">
         @csrf
         <button type="submit">
-            Edit
+            Edit {{ $consumer->name }}
         </button>
     </form>
     <div id="root">

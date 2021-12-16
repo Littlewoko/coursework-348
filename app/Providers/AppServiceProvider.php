@@ -14,6 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        app()->singleton(Reddit::class, function($app) {
+            return new Reddit('Beep Boop');
+        });
     }
 
     /**

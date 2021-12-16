@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsumerController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ImageController;
+use App\Services\Reddit;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,12 @@ use App\Http\Controllers\ImageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+app()->singleton(Reddit::class, function($app) {
+    return new Reddit('Beep Boop');
+});
+
+Route::get('/reddit', [ConsumerController::class, 'redditMethod']);
 
 Route::get('/', function () {
     return view('welcome');

@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+@if (session('message'))
+
+        <p><b>
+            {{ session('message') }}
+        </p></b>
+        
+    @endif
 <form method="Post" action="{{ route('consumers.update', [$consumer]) }}">
         @csrf
         <p>

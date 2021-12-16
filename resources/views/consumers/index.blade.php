@@ -16,7 +16,8 @@
         </p></b>
         
     @endif
-
+    <p>
+        Click a consumer's name for information and related comments
     <ul>
         @foreach ($consumers as $consumer)
             <li>

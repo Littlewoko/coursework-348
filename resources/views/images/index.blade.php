@@ -21,7 +21,7 @@
         @foreach ($images as $image)
             <li>
                 {{ $image->name }}
-                <img src="{{ asset('storage/app/public/images/'.$image->file_path) }}" />
+                <img src="{{ url('storage/app/public/images/'.$image->file_path) }}" />
             </li>
         @endforeach
     </ul>

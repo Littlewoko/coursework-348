@@ -72,9 +72,10 @@ class ConsumerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Consumer $consumer)
     {
         //
+        return view('consumers.edit', ['consumer'=>$consumer]);
     }
 
     /**
@@ -84,9 +85,15 @@ class ConsumerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Consumer $consumer)
     {
         //
+        $consumer->name = $request['name'];
+        $consumer->date_of_birth = $request['date_of_birth'];
+        $consumer->update();
+        
+        session()->flash('message', 'Consumer was updated.');
+        return redirect()->route('consumers.edit', ['consumer'=>$consumer]);
     }
 
     /**

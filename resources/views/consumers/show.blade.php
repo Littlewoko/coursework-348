@@ -5,6 +5,13 @@
 @endsection
 
 @section('content')
+    @if (session('message'))
+
+        <p><b>
+            {{ session('message') }}
+        </p></b>
+        
+    @endif
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
     </script>
     <script src="https://unpkg.com/axios/dist/axios.min.js">
@@ -23,6 +30,13 @@
         @csrf
         <button type="submit">
             Destroy
+        </button>
+    </form>
+    <form method="GET"
+        action="{{ route('consumers.edit', [$consumer]) }}">
+        @csrf
+        <button type="submit">
+            Edit
         </button>
     </form>
     <div id="root">

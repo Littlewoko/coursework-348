@@ -39,6 +39,12 @@ Route::get('/consumers/{consumer}', [ConsumerController::class, 'show'])
 Route::post('/consumers/{consumer}', [ConsumerController::class, 'destroy'])
     ->name('consumers.destroy')->middleware(['auth']);
 
+Route::get('consumers/{consumer}/edit', [ConsumerController::class, 'edit'])
+    ->name('consumers.edit')->middleware(['auth']);
+
+Route::post('consumers/{consumer}/edit', [ConsumerController::class, 'update'])
+    ->name('consumers.update');
+
 Route::get('/comments', [CommentController::class, 'index'])
     ->name('comments.index');
 

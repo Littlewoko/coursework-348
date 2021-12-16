@@ -14,10 +14,6 @@ class ImageTableSeeder extends Seeder
     public function run()
     {
         //
-        $i = new Image();
-        $i->name = "image";
-        $i->file_path = "public/images/Felis_silvestris_silvestris_small_gradual_decrease_of_quality.png";
-        $i->consumer_id = 1;
-        $i->save();
+       
     }
 }
